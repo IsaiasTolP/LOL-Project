@@ -37,11 +37,61 @@ button:active {
     color: #cdbe9130;
 }
 
-p{
+.card {
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+}
+
+.imgContainer {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1.5s ease;
+}
+
+.card:hover img {
+    transform: scale(1.2);
+}
+
+span{
     text-transform: uppercase;
     font-family: sans-serif;
     font-weight: 700;
     font-style: italic;
-    font-size: 20px;
+    font-size: 15px;
     color: white;
 }
+
+.textContainer {
+    position: relative;
+    padding: 10px;
+    background-color: #005A82;
+    z-index: -2; /* Para que el otro fondo lo pise*/
+    overflow: hidden;
+}
+
+.textContainer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: #0AC8B9;
+    transition: width 1s ease;
+    z-index: -1; /* Para que no cubra el texto pero pase por encima al otro fondo */
+}
+
+.card:hover .textContainer::before {
+    width: 100%;
+}
+
+
+
