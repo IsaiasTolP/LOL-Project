@@ -26,14 +26,11 @@ function displayChamps(){
     champions.forEach(element => {
         let img = `https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${element.id}_0.jpg`
         document.getElementById("body").innerHTML +=`
-        <div class="card">
+        <div class="card" onclick="window.location='./html/detail.html'">
             <div class="imgContainer">
                 <img src="${img}">
-                <div class="stats">
-                    Attack: ${element.attack}<br>
-                    Defense: ${element.defense}<br>
-                    Magic: ${element.magic}<br>
-                    Difficulty: ${element.difficulty}<br>
+                <div class="moreDet">
+                    <span id="text">Más detalles</span>
                 </div>
             </div>
             <div class="textContainer">
