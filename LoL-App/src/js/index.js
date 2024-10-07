@@ -26,11 +26,18 @@ function displayChamps(){
         <div class="card">
             <div class="imgContainer">
                 <img src="${img}">
+                <div class="stats">
+                    Attack: ${element.attack}<br>
+                    Defense: ${element.defense}<br>
+                    Magic: ${element.magic}<br>
+                    Difficulty: ${element.difficulty}<br>
+                </div>
             </div>
             <div class="textContainer">
                 <span class="name">${element.name}</span><br>
                 <span class="title">${element.title}</span>
             </div>
+            
         </div>`;
     })
     

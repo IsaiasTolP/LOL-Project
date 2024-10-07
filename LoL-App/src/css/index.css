@@ -45,6 +45,7 @@ main {
 }
 
 .card {
+    position: relative;
     width: 320px;
     height: 570px;
     display: flex;
@@ -55,6 +56,7 @@ main {
 
 .imgContainer {
     height: 100%;
+    position: relative;
     height: auto;
     overflow: hidden;
 }
@@ -104,7 +106,7 @@ span{
     left: 0;
     width: 0;
     height: 100%;
-    background-color: #0AC8B9;
+    background-image: linear-gradient(to left, #005A82, #0AC8B9);
     transition: width 1s ease;
     z-index: -1; /* Para que no cubra el texto pero pase por encima al otro fondo */
 }
@@ -113,5 +115,11 @@ span{
     width: 100%;
 }
 
-
-
+.stats {
+    position: absolute;
+    top: 15%;
+    left: 0;
+    height: 70%;
+    width: 100%;
+    background-color: red;
+}
