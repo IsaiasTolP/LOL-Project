@@ -114,12 +114,3 @@ span{
 .card:hover .textContainer::before {
     width: 100%;
 }
-
-.stats {
-    position: absolute;
-    top: 15%;
-    left: 0;
-    height: 70%;
-    width: 100%;
-    background-color: red;
-}
