@@ -28,7 +28,8 @@ function displayChamps(){
                 <img src="${img}">
             </div>
             <div class="textContainer">
-                <span>${element.name}</span>
+                <span class="name">${element.name}</span><br>
+                <span class="title">${element.title}</span>
             </div>
         </div>`;
     })
