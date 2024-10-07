@@ -38,14 +38,14 @@ button:active {
 }
 
 .card {
-    width: 150px;
+    width: 300px;
     display: flex;
     flex-direction: column;
 }
 
 .imgContainer {
-    width: 150px;
-    height: 150px;
+    width: 300px;
+    height: 300px;
     overflow: hidden;
 }
 

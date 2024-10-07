@@ -19,16 +19,21 @@ fetch(url).then(response => response.json())
     });
 
 function displayChamps(){
-    let img = `https://ddragon.leagueoflegends.com/cdn/13.18.1/img/champion/${champions[0].img}`
-    document.getElementById("body").innerHTML +=`
-    <div class="card">
-        <div class="imgContainer">
-            <img src="${img}">
-        </div>
-        <div class="textContainer">
-            <span>Escritura</span>
-        </div>
-    </div>`;
+    let i = 0;
+    champions.forEach(element => {
+        let img = `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champions[i].id}_0.jpg`
+        document.getElementById("body").innerHTML +=`
+        <div class="card">
+            <div class="imgContainer">
+                <img src="${img}">
+            </div>
+            <div class="textContainer">
+                <span>Escritura</span>
+            </div>
+        </div>`;
+        i++
+    })
+    
 
 }
 window.displayChamps = displayChamps; // Pongo la función en el espacio de nombres global para acceder desde HTML
