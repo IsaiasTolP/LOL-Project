@@ -21,17 +21,16 @@ fetch(url).then(response => response.json())
 function displayChamps(){
     let i = 0;
     champions.forEach(element => {
-        let img = `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champions[i].id}_0.jpg`
+        let img = `https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${element.id}_0.jpg`
         document.getElementById("body").innerHTML +=`
         <div class="card">
             <div class="imgContainer">
                 <img src="${img}">
             </div>
             <div class="textContainer">
-                <span>Escritura</span>
+                <span>${element.name}</span>
             </div>
         </div>`;
-        i++
     })
     
 
