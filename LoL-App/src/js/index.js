@@ -14,7 +14,7 @@ async function initializeLeagueStats(){
                 champions.push(champion);
             });
         });
-    await displayChamps();
+    displayChamps();
 }
 
 button.addEventListener("click", () => {
@@ -26,7 +26,7 @@ function displayChamps(){
     champions.forEach(element => {
         let img = `https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${element.id}_0.jpg`
         document.getElementById("body").innerHTML +=`
-        <div class="card" onclick="window.location='./html/detail.html'">
+        <div class="card" onclick="window.location='html/detail.html?champion=${element.id}'">
             <div class="imgContainer">
                 <img src="${img}">
                 <div class="moreDet">
