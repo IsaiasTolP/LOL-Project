@@ -28,10 +28,14 @@ async function loadChampDetails() {
 
 function hideLoadingScreen(){
     document.getElementById("loadingScreen").style.visibility = "hidden";
+    document.getElementById("main").style.visibility = "visible";
 }
 
 function displayChampionDetails(champ) {
-    document.getElementById("text").textContent = champ.name;
+    let imgUrl = `https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${champ.id}_0.jpg`
+    document.getElementById("champImg").innerHTML +=`
+    <img src="${imgUrl}">
+    <span>${champ.name}</span>`;
 }
 
 loadChampDetails();

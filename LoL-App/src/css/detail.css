@@ -1,0 +1,42 @@
+#main {
+    visibility: hidden;
+    position: relative;
+    display: flex;
+    margin: 0 auto;
+    height: 750px;
+    width: 90%;
+    border-radius: 0.2rem;
+    background-color: #F0E6D2;
+}
+
+img {
+    margin-bottom: 10px;
+    width: 100%;
+    height: fit-content;
+    justify-content: center;
+    border: 2px solid;
+    border-image: linear-gradient(#c8aa6d, #7a5c29) 1;
+}
+
+#loadingScreen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#loadingText { 
+    color: white;
+    font-size: 64px;
+}
+
+#champImg {
+    margin: auto 20px;
+    display: flex;
+    width: 20%;
+    flex-direction: column;
+}
+
+#champInfo {
+    width: 80%;
+}
