@@ -4,10 +4,17 @@ export default class Champion{
         this.name = data.name;
         this.title = data.title;
         this.blurb = data.blurb;
-        this.attack = data.info.attack !== 0 ? data.info.attack : "No disponible";
-        this.defense = data.info.defense !== 0 ? data.info.defense : "No disponible";
-        this.magic = data.info.magic; // Hay campeones sin magia asi que no lo tocamos
+        this.roles = data.tags;
         this.difficulty = data.info.difficulty !== 0 ? data.info.difficulty : "No disponible";
+        this.baseHp = data.stats.hp;
+        this.lvl18Hp = this.baseHp + (data.stats.hpperlevel * 17);
+        this.baseMp = data.stats.mp;
+        this.lvl18Mp = this.baseMp + (data.stats.mpperlevel * 17);
+        this.baseAttack = data.stats.attackdamage;
+        this.lvl18Attack = this.baseAttack + (data.stats.attackdamageperlevel * 17);
+        this.baseAtkSpeed = data.stats.attackspeed;
+        this.lvl18AtkSpeed = Math.round((this.baseAtkSpeed * (data.stats.attackspeedperlevel * 17 / 100) + this.baseAtkSpeed) * 1000) / 1000;
+        this.atkRange = data.stats.attackrange;
     }
     
 }

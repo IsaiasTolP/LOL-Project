@@ -1,6 +1,6 @@
 import Champion from "./champion.js";
 
-const url = "https://ddragon.leagueoflegends.com/cdn/13.18.1/data/es_ES/champion.json";
+const url = "https://ddragon.leagueoflegends.com/cdn/14.20.1/data/es_ES/champion.json";
 
 function getUrlChamp() {
     const param = new URLSearchParams(window.location.search);
@@ -53,7 +53,7 @@ async function displayChampionDetails(champ) {
     const imagesUrls = await getChampImages(champ);
     
     document.getElementById("champImg").innerHTML +=`
-    <div id="carousel"><span id="champName">${champ.name}</span><br><span id="champTitle">${champ.title}</span></div>`;
+    <div id="carousel"><span id="champName">${champ.name}</span><span id="champTitle">${champ.title}</span></div>`;
     for(let i = 0; i < imagesUrls.length; i++){
         let img = document.createElement('img');
         img.src = imagesUrls[i];
@@ -65,6 +65,26 @@ async function displayChampionDetails(champ) {
         
     }
     slides = document.querySelectorAll(".carouselItem");
+
+    let pluralText = ""
+    if (champ.roles.length > 1) {
+        pluralText = "es"
+    }
+    document.getElementById("champInfo").innerHTML +=`
+    <h4>${champ.blurb}</h4>
+    <div id="stats">
+        <p>Rol${pluralText}: ${champ.roles.join(", ")}</p>
+        <p>Dificultad: ${champ.difficulty}</p>
+        <p>Vida base: ${champ.baseHp} --> Nivel 18: ${champ.lvl18Hp}</p>
+        <p>Maná base: ${champ.baseMp} --> Nivel 18: ${champ.lvl18Mp}</p>
+        <p>Ataque base: ${champ.baseAttack} --> Nivel 18: ${champ.lvl18Attack}</p>
+        <p>Velocidad de ataque base: ${champ.baseAtkSpeed} --> Nivel 18: ${champ.lvl18AtkSpeed}</p>
+        <p>Rango de ataque: ${champ.atkRange}</p>
+    </div>
+    <div id="skills">
+        <p>Aquí las skills</p>
+    </div>`;
+
     hideLoadingScreen();
     showSlide(currSlide);
     autoSlide();

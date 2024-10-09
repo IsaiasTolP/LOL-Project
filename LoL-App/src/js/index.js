@@ -1,6 +1,6 @@
-import Champion from "./champion.js";
+import BasicChampion from "./basic-champion.js";
 
-const url = "https://ddragon.leagueoflegends.com/cdn/13.18.1/data/es_ES/champion.json";
+const url = "https://ddragon.leagueoflegends.com/cdn/14.20.1/data/es_ES/champion.json";
 
 const button = document.querySelector("button");
 let champions = [];
@@ -10,7 +10,7 @@ async function initializeLeagueStats(){
         .then(data => {
             const champsData = data.data;
             Object.keys(champsData).forEach(champKey => {
-                const champion = new Champion(champsData[champKey]);
+                const champion = new BasicChampion(champsData[champKey]);
                 champions.push(champion);
             });
         });
