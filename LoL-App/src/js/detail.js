@@ -28,18 +28,13 @@ async function getChampImages(champ) {
     let imagesUrls = [];
     while (true) {
         let imgUrl = `https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${champ.id}_${imageIdx}.jpg`;
-        try {
-            let response = await fetch(imgUrl);
-            if (response.ok) {
-                imagesUrls.push(imgUrl);
-                imageIdx++;
-            }
-            else {
-                break;
-            }
+        let response = await fetch(imgUrl);
+        if (response.ok) {
+            imagesUrls.push(imgUrl);
+            imageIdx++;
         }
-        catch (error){
-            console.log("Error", error);
+        else {
+            imageIdx++;
             break;
         }
     }
