@@ -1,15 +1,13 @@
 import Champion from "./champion.js";
 
-const url = "https://ddragon.leagueoflegends.com/cdn/14.20.1/data/es_ES/champion.json";
-
 function getUrlChamp() {
     const param = new URLSearchParams(window.location.search);
-    const champion = param.get('champion');
-    return champion;
+    const champID = param.get('champion');
+    return champID;
 }
 
 const champID = getUrlChamp();
-
+const url = "https://ddragon.leagueoflegends.com/cdn/14.20.1/data/es_ES/champion.json";
 
 async function loadChampDetails() {
     try{
