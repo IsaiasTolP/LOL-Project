@@ -2,41 +2,29 @@ import Champion from "./champion.js";
 
 function getUrlChamp() {
     const param = new URLSearchParams(window.location.search);
-    const champID = param.get('champion');
-    return champID;
+    const champId = param.get('champion');
+    return champId;
 }
 
-const champID = getUrlChamp();
-const url = "https://ddragon.leagueoflegends.com/cdn/14.20.1/data/es_ES/champion.json";
+const champId = getUrlChamp();
+const url = `https://ddragon.leagueoflegends.com/cdn/14.20.1/data/es_ES/champion/${champId}.json`;
 
 async function loadChampDetails() {
-    try{
-        const response = await fetch(url);
-        const data = await response.json();
-        const champ = new Champion(data.data[champID]);
-        displayChampionDetails(champ);
-    }
-    catch (error){
-        console.error("Error al cargar los datos", error);
-    }
+    const response = await fetch(url);
+    const data = await response.json();
+    const champData = data.data;
+    console.log(champData[champId])
+    const champ = new Champion(champData[champId]);
+    displayChampionDetails(champ);
 }
 
 async function getChampImages(champ) {
-    let imageIdx = 0;
     let imagesUrls = [];
-    while (true) {
-        let imgUrl = `https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${champ.id}_${imageIdx}.jpg`;
-        let response = await fetch(imgUrl);
-        if (response.ok) {
-            imagesUrls.push(imgUrl);
-            imageIdx++;
-        }
-        else {
-            imageIdx++;
-            break;
-        }
+    for (let skin of champ.skinsData) {
+        let imgUrl = `https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${champ.id}_${skin.num}.jpg`;
+        imagesUrls.push(imgUrl);
     }
-    return imagesUrls
+    return imagesUrls;
 }
 
 function hideLoadingScreen(){
@@ -69,7 +57,7 @@ async function displayChampionDetails(champ) {
         pluralText = "es"
     }
     document.getElementById("champInfo").innerHTML +=`
-    <h4>${champ.blurb}</h4>
+    <h4 id="champLore">${champ.lore}</h4>
     <div id="stats">
         <p>Rol${pluralText}: ${champ.roles.join(", ")}</p>
         <p>Dificultad: ${champ.difficulty}</p>
@@ -105,7 +93,7 @@ function moveSlide(step) {
 function autoSlide() {
     setInterval(function() {
         moveSlide(1);
-    }, 5000);
+    }, 3000);
 }
 
 loadChampDetails();

@@ -1,9 +1,10 @@
-export default class Champion{
+export default class Champion {
     constructor(data){
         this.id = data.id;
+        this.skinsData = data.skins;
         this.name = data.name;
         this.title = data.title;
-        this.blurb = data.blurb;
+        this.lore = data.lore;
         this.roles = data.tags;
         this.difficulty = data.info.difficulty !== 0 ? data.info.difficulty : "No disponible";
         this.baseHp = data.stats.hp;
