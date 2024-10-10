@@ -18,6 +18,8 @@ export default class Champion {
         this.baseAtkSpeed = data.stats.attackspeed;
         this.lvl18AtkSpeed = Math.round((this.baseAtkSpeed * (data.stats.attackspeedperlevel * 17 / 100) + this.baseAtkSpeed) * 1000) / 1000;
         this.atkRange = data.stats.attackrange;
+        this.allyTips = data.allytips;
+        this.enemyTips = data.enemytips;
     }
     
 }

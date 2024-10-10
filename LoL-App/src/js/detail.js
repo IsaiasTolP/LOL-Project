@@ -65,7 +65,10 @@ function displayChampionInfo(champ) {
     document.getElementById("champInfo").innerHTML +=`
     <h4 id="champLore">${champ.lore}</h4>
     <div id="gameplayInfo">
+        <div id="allyTips"></div>
+        <div id="enemyTips"></div>
         <div id="stats">
+            <h3>Estadísiticas</h3>
             <p>🤩Rol${pluralText}: ${champ.roles.join(", ")}</p>
             <p>🎯Dificultad: ${champ.difficulty}</p>
             <p>💚Vida base: ${champ.baseHp} --> Nivel 18: ${champ.lvl18Hp}</p>
@@ -77,8 +80,26 @@ function displayChampionInfo(champ) {
     </div>
     <h2>Habilidades</h2>
     <div id="skills"></div>`;
-    
+
+    /*
+    for(let i = 0; i < champ.allyTips.length; i++) {
+        document.getElementById("allyTips").innerHTML +=`
+        <p>${i + 1}. ${champ.allyTips[i]}</p>`
+    }
+
+    for(let i = 0; i < champ.enemyTips.length; i++) {
+        document.getElementById("enemyTips").innerHTML +=`
+        <p>${i + 1}. ${champ.enemyTips[i]}</p>`
+    }
+    */
     const spellTypes = ["Q", "W", "E", "Definitiva"];
+
+    document.getElementById("skills").innerHTML +=`
+    <div class="passive">
+        <p>Pasiva</p>
+        <img src="https://ddragon.leagueoflegends.com/cdn/14.20.1/img/passive/${champ.passiveData.image.full}">
+        <p>${champ.passiveData.name}</p>
+    </div>`;
     let i = 0;
     for(let spell of champ.spellsData) {
         document.getElementById("skills").innerHTML +=`
@@ -89,12 +110,6 @@ function displayChampionInfo(champ) {
         </div>`
         i++;
     }
-    document.getElementById("skills").innerHTML +=`
-    <div class="passive">
-        <p>Pasiva</p>
-        <img src="https://ddragon.leagueoflegends.com/cdn/14.20.1/img/passive/${champ.passiveData.image.full}">
-        <p>${champ.passiveData.name}</p>
-    </div>`;
 }
 
 function showSlide(index) {

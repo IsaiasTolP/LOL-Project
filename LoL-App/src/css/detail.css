@@ -96,12 +96,20 @@ body {
 }
 
 #gameplayInfo {
+    display: flex;
     padding: 10px;
 }
 
 #skills {
     display: flex;
     justify-content: space-evenly;
+}
+
+#stats h3 {
+    font-weight: 400;
+    text-align: center;
+    font-size: 24px;
+    margin: 0;
 }
 
 .spell,
@@ -118,4 +126,33 @@ body {
     display: flex;
     align-self: center;
     border: 2px solid black;
+}
+
+footer {
+    padding: 20px;
+    margin: 20px;
+    text-align: center;
+}
+
+footer a {
+    background: #1e2328;
+    color: #cdbe91;
+    padding: 5px 15px;
+    font-size: 25px;
+    letter-spacing: 1px;
+    border: 2px solid;
+    border-image: linear-gradient(#c8aa6d, #7a5c29) 2;
+}
+
+footer a:hover {
+    text-shadow: 0 0 5px #ffffff80;
+    box-shadow: 0 0 8px 0 #ffffff50;
+    background: linear-gradient(#1e2328, #433d2b);
+    cursor: pointer;
+}
+
+footer a:active {
+    text-shadow: none;
+    box-shadow: none;
+    color: #cdbe9130;
 }
