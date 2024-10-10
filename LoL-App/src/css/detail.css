@@ -81,13 +81,41 @@ body {
     padding: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-evenly;
+}
+
+#champInfo h2 {
+    text-align: center;
+    font-size: 36px;
+    margin: 0;
+    font-weight: 400;
 }
 
 #champLore {
     font-weight: 400;
 }
 
-#stats {
+#gameplayInfo {
     padding: 10px;
+}
+
+#skills {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.spell,
+.passive {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.spell img,
+.passive img {
+    width: 100px;
+    display: flex;
+    align-self: center;
+    border: 2px solid black;
 }

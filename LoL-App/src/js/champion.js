@@ -2,6 +2,8 @@ export default class Champion {
     constructor(data){
         this.id = data.id;
         this.skinsData = data.skins;
+        this.spellsData = data.spells;
+        this.passiveData = data.passive;
         this.name = data.name;
         this.title = data.title;
         this.lore = data.lore;
