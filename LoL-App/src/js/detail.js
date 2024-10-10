@@ -14,7 +14,7 @@ async function loadChampDetails() {
     const data = await response.json();
     const champData = data.data;
     const champ = new Champion(champData[champId]);
-    displayChampionImages(champ);
+    displayChampionDetails(champ);
 }
 
 async function getChampImages(champ) {
@@ -34,10 +34,18 @@ function hideLoadingScreen(){
 let currSlide = 0;
 let slides = [];
 
-async function displayChampionImages(champ) {
+function displayChampionDetails(champ) {
+    
+    displayChampionImage(champ);
+    displayChampionInfo(champ);
+    hideLoadingScreen();
+    showSlide(currSlide);
+    autoSlide();
+}
+
+async function displayChampionImage(champ) {
     const imagesUrls = await getChampImages(champ);
 
-    displayChampionInfo(champ);
     document.getElementById("champImg").innerHTML +=`
     <div id="carousel"><span id="champName">${champ.name}</span><span id="champTitle">${champ.title}</span></div>`;
     for(let i = 0; i < imagesUrls.length; i++){
@@ -51,10 +59,6 @@ async function displayChampionImages(champ) {
         
     }
     slides = document.querySelectorAll(".carouselItem");
-
-    hideLoadingScreen();
-    showSlide(currSlide);
-    autoSlide();
 }
 
 function displayChampionInfo(champ) {
@@ -65,8 +69,12 @@ function displayChampionInfo(champ) {
     document.getElementById("champInfo").innerHTML +=`
     <h4 id="champLore">${champ.lore}</h4>
     <div id="gameplayInfo">
-        <div id="allyTips"></div>
-        <div id="enemyTips"></div>
+        <div id="allyTips">
+            <h3>Como usar</h3>
+        </div>
+        <div id="enemyTips">
+            <h3>Como contrarrestar</h3>
+        </div>
         <div id="stats">
             <h3>Estadísiticas</h3>
             <p>🤩Rol${pluralText}: ${champ.roles.join(", ")}</p>
@@ -81,7 +89,6 @@ function displayChampionInfo(champ) {
     <h2>Habilidades</h2>
     <div id="skills"></div>`;
 
-    /*
     for(let i = 0; i < champ.allyTips.length; i++) {
         document.getElementById("allyTips").innerHTML +=`
         <p>${i + 1}. ${champ.allyTips[i]}</p>`
@@ -91,7 +98,7 @@ function displayChampionInfo(champ) {
         document.getElementById("enemyTips").innerHTML +=`
         <p>${i + 1}. ${champ.enemyTips[i]}</p>`
     }
-    */
+    
     const spellTypes = ["Q", "W", "E", "Definitiva"];
 
     document.getElementById("skills").innerHTML +=`
