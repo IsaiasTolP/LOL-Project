@@ -17,7 +17,7 @@ async function loadChampDetails() {
     displayChampionDetails(champ);
 }
 
-async function getChampImages(champ) {
+function getChampImages(champ) {
     let imagesUrls = [];
     for (let skin of champ.skinsData) {
         let imgUrl = `https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${champ.id}_${skin.num}.jpg`;
