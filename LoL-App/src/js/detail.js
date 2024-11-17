@@ -7,7 +7,7 @@ function getUrlChamp() {
 }
 
 const champId = getUrlChamp();
-const url = `https://ddragon.leagueoflegends.com/cdn/14.20.1/data/es_ES/champion/${champId}.json`;
+const url = `https://ddragon.leagueoflegends.com/cdn/14.22.1/data/es_ES/champion/${champId}.json`;
 
 async function loadChampDetails() {
     const response = await fetch(url);
