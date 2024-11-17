@@ -1,6 +1,6 @@
 import BasicChampion from "./basic-champion.js";
 
-const url = "https://ddragon.leagueoflegends.com/cdn/14.20.1/data/es_ES/champion.json";
+const url = "https://ddragon.leagueoflegends.com/cdn/14.22.1/data/es_ES/champion.json";
 
 const button = document.querySelector("button");
 let champions = [];
