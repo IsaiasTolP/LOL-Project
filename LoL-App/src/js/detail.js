@@ -104,7 +104,7 @@ function displayChampionInfo(champ) {
     document.getElementById("skills").innerHTML +=`
     <div class="passive">
         <p>Pasiva</p>
-        <img src="https://ddragon.leagueoflegends.com/cdn/14.20.1/img/passive/${champ.passiveData.image.full}">
+        <img src="https://ddragon.leagueoflegends.com/cdn/14.22.1/img/passive/${champ.passiveData.image.full}">
         <p>${champ.passiveData.name}</p>
     </div>`;
     let i = 0;
@@ -112,7 +112,7 @@ function displayChampionInfo(champ) {
         document.getElementById("skills").innerHTML +=`
         <div class="spell">
             <p>Habilidad ${spellTypes[i]}</p>
-            <img src="https://ddragon.leagueoflegends.com/cdn/14.20.1/img/spell/${spell.id}.png">
+            <img src="https://ddragon.leagueoflegends.com/cdn/14.22.1/img/spell/${spell.id}.png">
             <p>${spell.name}</p>
         </div>`
         i++;
